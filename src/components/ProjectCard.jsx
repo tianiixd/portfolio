@@ -8,21 +8,22 @@ import {
   FaCss3Alt,
   FaJsSquare,
   FaWindows,
-  FaCode,
 } from "react-icons/fa";
+import { TbBrandCSharp } from "react-icons/tb";
 import {
   SiTailwindcss,
   SiPostgresql,
   SiVite,
   SiMongodb,
   SiTypescript,
+  SiEjs,
 } from "react-icons/si";
 
 const getToolIcon = (toolName) => {
   const lowerTool = toolName.toLowerCase();
   if (lowerTool.includes("react"))
     return <FaReact className="mr-1.5 text-sm" />;
-  if (lowerTool.includes("c#")) return <FaCode className="mr-1.5 text-sm" />;
+  if (lowerTool.includes("c#")) return <TbBrandCSharp className="mr-1.5 text-sm" />;
   if (lowerTool.includes("express"))
     return (
       <span className="mr-1.5 flex items-center justify-center font-bold text-[9px] border border-current rounded-full w-[14px] h-[14px] leading-none">
@@ -42,7 +43,9 @@ const getToolIcon = (toolName) => {
     return <SiTypescript className="mr-1.5 text-sm" />;
   if (lowerTool.includes("javascript"))
     return <FaJsSquare className="mr-1.5 text-sm" />;
-  if (lowerTool.includes("html") || lowerTool.includes("ejs"))
+  if (lowerTool.includes("ejs"))
+    return <SiEjs className="mr-1.5 text-sm" />;
+  if (lowerTool.includes("html"))
     return <FaHtml5 className="mr-1.5 text-sm" />;
   if (lowerTool.includes("css"))
     return <FaCss3Alt className="mr-1.5 text-sm" />;
