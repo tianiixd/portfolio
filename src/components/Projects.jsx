@@ -32,7 +32,7 @@ const Projects = () => {
           transition={{ delay: 0.1 }}
           className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto"
         >
-          "A showcase of some of my recent works, side projects, and school
+          A showcase of some of my recent works, side projects, and school
           builds where I explored systems, product ideas, and full-stack
           development.
         </motion.p>
