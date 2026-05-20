@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ZoomIn, ArrowRight, X, AppWindow } from "lucide-react";
+import { ZoomIn, ArrowRight, X, AppWindow, Braces } from "lucide-react";
 import {
   FaReact,
   FaNodeJs,
@@ -56,6 +56,8 @@ const getToolIcon = (toolName) => {
     return <FaDatabase className="mr-1.5 text-sm text-[#CC292B]" />;
   if (lowerTool.includes("windows"))
     return <AppWindow className="mr-1.5 w-[14px] h-[14px] text-[#0078D6]" />;
+  if (lowerTool.includes("api"))
+    return <Braces className="mr-1.5 w-[14px] h-[14px] text-gray-600" />;
   return null;
 };
 
