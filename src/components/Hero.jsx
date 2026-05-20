@@ -14,8 +14,8 @@ const Hero = () => {
             Hi, I'm Christian Belarmino
           </h1>
           <p className="text-xl text-gray-500 mb-8 max-w-2xl leading-relaxed">
-            Full-stack student developer passionate about building scalable,
-            user-centric applications and continuous learning.
+            Student full-stack developer focused on building functional,
+            reliable web systems.
           </p>
           <div className="flex flex-wrap items-center gap-4 mb-8">
             <a

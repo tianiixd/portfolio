@@ -25,73 +25,73 @@ const getSkillIcon = (skillName) => {
   const lowerSkill = skillName.toLowerCase();
   if (lowerSkill.includes("react"))
     return (
-      <FaReact className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <FaReact className="w-5 h-5 text-[#61DAFB]" />
     );
-  if (lowerSkill.includes("express"))
+  if (lowerSkill === "express.js" || lowerSkill === "express")
     return (
-      <span className="w-5 h-5 flex items-center justify-center font-bold text-[10px] border-2 border-gray-500 rounded-full group-hover:border-brand group-hover:text-brand text-gray-500 transition-colors">
+      <span className="w-5 h-5 flex items-center justify-center font-bold text-[10px] border-2 border-black rounded-full text-black">
         ex
       </span>
     );
   if (lowerSkill.includes("node"))
     return (
-      <FaNodeJs className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <FaNodeJs className="w-5 h-5 text-[#339933]" />
     );
   if (lowerSkill.includes("postgres"))
     return (
-      <SiPostgresql className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <SiPostgresql className="w-5 h-5 text-[#336791]" />
     );
   if (lowerSkill.includes("mysql"))
     return (
-      <SiMysql className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <SiMysql className="w-5 h-5 text-[#4479A1]" />
     );
   if (lowerSkill.includes("sql server"))
     return (
-      <FaDatabase className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <FaDatabase className="w-5 h-5 text-[#CC292B]" />
     );
   if (lowerSkill.includes("api"))
     return (
-      <Braces className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <Braces className="w-5 h-5 text-gray-500" />
     );
   if (lowerSkill.includes("mongo"))
     return (
-      <SiMongodb className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <SiMongodb className="w-5 h-5 text-[#47A248]" />
     );
   if (lowerSkill.includes("tailwind"))
     return (
-      <SiTailwindcss className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <SiTailwindcss className="w-5 h-5 text-[#06B6D4]" />
     );
   if (lowerSkill.includes("vite"))
     return (
-      <SiVite className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <SiVite className="w-5 h-5 text-[#646CFF]" />
     );
   if (lowerSkill.includes("typescript"))
     return (
-      <SiTypescript className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <SiTypescript className="w-5 h-5 text-[#3178C6]" />
     );
   if (lowerSkill.includes("javascript"))
     return (
-      <FaJsSquare className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <FaJsSquare className="w-5 h-5 text-[#F7DF1E]" />
     );
   if (lowerSkill.includes("html"))
     return (
-      <FaHtml5 className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <FaHtml5 className="w-5 h-5 text-[#E34F26]" />
     );
   if (lowerSkill.includes("css"))
     return (
-      <FaCss3Alt className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <FaCss3Alt className="w-5 h-5 text-[#1572B6]" />
     );
   if (lowerSkill.includes("github"))
     return (
-      <FaGithub className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <FaGithub className="w-5 h-5 text-[#181717]" />
     );
   if (lowerSkill.includes("git"))
     return (
-      <FaGitAlt className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <FaGitAlt className="w-5 h-5 text-[#F05032]" />
     );
   if (lowerSkill.includes("docker"))
     return (
-      <FaDocker className="w-5 h-5 text-gray-500 group-hover:text-brand transition-colors" />
+      <FaDocker className="w-5 h-5 text-[#2496ED]" />
     );
 
   return <div className="w-1.5 h-1.5 rounded-full bg-brand/50"></div>;

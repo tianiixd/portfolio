@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ZoomIn, ArrowRight, X } from "lucide-react";
+import { ZoomIn, ArrowRight, X, AppWindow } from "lucide-react";
 import {
   FaReact,
   FaNodeJs,
@@ -7,7 +7,7 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaJsSquare,
-  FaWindows,
+  FaCode,
 } from "react-icons/fa";
 import { TbBrandCSharp } from "react-icons/tb";
 import {
@@ -16,43 +16,46 @@ import {
   SiVite,
   SiMongodb,
   SiTypescript,
-  SiEjs,
 } from "react-icons/si";
 
 const getToolIcon = (toolName) => {
   const lowerTool = toolName.toLowerCase();
   if (lowerTool.includes("react"))
-    return <FaReact className="mr-1.5 text-sm" />;
-  if (lowerTool.includes("c#")) return <TbBrandCSharp className="mr-1.5 text-sm" />;
-  if (lowerTool.includes("express"))
+    return <FaReact className="mr-1.5 text-sm text-[#61DAFB]" />;
+  if (lowerTool.includes("c#"))
+    return <TbBrandCSharp className="mr-1.5 text-sm text-[#512BD4]" />;
+  if (lowerTool === "express.js" || lowerTool === "express")
     return (
-      <span className="mr-1.5 flex items-center justify-center font-bold text-[9px] border border-current rounded-full w-[14px] h-[14px] leading-none">
+      <span className="mr-1.5 flex items-center justify-center font-bold text-[9px] border border-black rounded-full w-[14px] h-[14px] leading-none text-black">
         ex
       </span>
     );
   if (lowerTool.includes("node"))
-    return <FaNodeJs className="mr-1.5 text-sm" />;
+    return <FaNodeJs className="mr-1.5 text-sm text-[#339933]" />;
+  if (lowerTool.includes("sql server express"))
+    return <FaDatabase className="mr-1.5 w-4 h-4 text-[#CC292B]" />;
   if (lowerTool.includes("postgres"))
-    return <SiPostgresql className="mr-1.5 text-sm" />;
+    return <SiPostgresql className="mr-1.5 text-sm text-[#336791]" />;
   if (lowerTool.includes("tailwind"))
-    return <SiTailwindcss className="mr-1.5 text-sm" />;
-  if (lowerTool.includes("vite")) return <SiVite className="mr-1.5 text-sm" />;
+    return <SiTailwindcss className="mr-1.5 text-sm text-[#06B6D4]" />;
+  if (lowerTool.includes("vite"))
+    return <SiVite className="mr-1.5 text-sm text-[#646CFF]" />;
   if (lowerTool.includes("mongo"))
-    return <SiMongodb className="mr-1.5 text-sm" />;
+    return <SiMongodb className="mr-1.5 text-sm text-[#47A248]" />;
   if (lowerTool.includes("typescript"))
-    return <SiTypescript className="mr-1.5 text-sm" />;
+    return <SiTypescript className="mr-1.5 text-sm text-[#3178C6]" />;
   if (lowerTool.includes("javascript"))
-    return <FaJsSquare className="mr-1.5 text-sm" />;
+    return <FaJsSquare className="mr-1.5 text-sm text-[#F7DF1E]" />;
   if (lowerTool.includes("ejs"))
-    return <SiEjs className="mr-1.5 text-sm" />;
+    return <FaCode className="mr-1.5 text-sm text-[#B4CA65]" />;
   if (lowerTool.includes("html"))
-    return <FaHtml5 className="mr-1.5 text-sm" />;
+    return <FaHtml5 className="mr-1.5 text-sm text-[#E34F26]" />;
   if (lowerTool.includes("css"))
-    return <FaCss3Alt className="mr-1.5 text-sm" />;
+    return <FaCss3Alt className="mr-1.5 text-sm text-[#1572B6]" />;
   if (lowerTool.includes("sql"))
-    return <FaDatabase className="mr-1.5 text-sm" />;
+    return <FaDatabase className="mr-1.5 text-sm text-[#CC292B]" />;
   if (lowerTool.includes("windows"))
-    return <FaWindows className="mr-1.5 text-sm" />;
+    return <AppWindow className="mr-1.5 w-[14px] h-[14px] text-[#0078D6]" />;
   return null;
 };
 
@@ -111,25 +114,37 @@ const ProjectCard = ({ project }) => {
 
       {isPreviewOpen && (
         <div
-          className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 p-4 sm:p-8 backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/60 p-4 sm:p-8 backdrop-blur-md"
           onClick={() => setIsPreviewOpen(false)}
         >
-          <div className="relative max-w-5xl w-full h-full flex flex-col items-center justify-center">
-            <button
-              className="absolute top-4 right-4 text-white hover:text-gray-300 bg-black/50 hover:bg-black/80 rounded-full p-2 transition-all cursor-pointer"
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsPreviewOpen(false);
-              }}
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <img
-              src={project.image}
-              alt={project.title}
-              className="max-h-full max-w-full object-contain rounded-md shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            />
+          <div
+            className="relative max-w-6xl w-full max-h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-2xl transition-all"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-white/80 backdrop-blur-sm z-10">
+              <div>
+                <h3 className="font-heading text-2xl font-bold text-gray-900 flex items-center gap-2">
+                  <ZoomIn className="w-6 h-6 text-brand" />
+                  Preview:{" "}
+                  <span className="text-xl text-gray-600 font-medium font-sans">
+                    {project.title}
+                  </span>
+                </h3>
+              </div>
+              <button
+                className="text-gray-400 hover:text-gray-700 bg-gray-50 hover:bg-gray-100 rounded-full p-2 cursor-pointer shadow-sm border border-gray-200 ease-out duration-200"
+                onClick={() => setIsPreviewOpen(false)}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-4 sm:p-6 bg-gray-50/50 flex-1 overflow-hidden flex items-center justify-center relative">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="max-w-full rounded-xl shadow-lg border border-gray-200/50 object-contain max-h-[75vh]"
+              />
+            </div>
           </div>
         </div>
       )}

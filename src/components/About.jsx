@@ -105,11 +105,12 @@ const About = () => {
               problems into intuitive solutions.
             </p>
             <p>
-              With a strong foundation built through rigorous coursework and
-              self-directed learning, I build products across the stack from
-              React interfaces to Node.js and PostgreSQL backends. I thrive at
-              the intersection of engineering and user experience, where clean
-              code meets thoughtful design.
+              I started coding when I was in SHS in 2021. I chose ICT and fell
+              in love with programming. With a strong foundation built through
+              rigorous coursework and self-directed learning, I build products
+              across the stack from React interfaces to Node.js and PostgreSQL
+              backends. I thrive at the intersection of engineering and user
+              experience, where clean code meets thoughtful design.
             </p>
             <p>
               When I'm not studying for exams or working on academic projects, I
@@ -120,7 +121,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-center">
-              <h4 className="text-3xl font-bold text-brand mb-1">10+</h4>
+              <h4 className="text-3xl font-bold text-brand mb-1">30+</h4>
               <p className="text-sm font-medium text-gray-500">
                 Projects Built
               </p>

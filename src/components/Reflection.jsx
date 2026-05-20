@@ -71,8 +71,8 @@ const Reflection = () => {
           transition={{ delay: 0.1 }}
           className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto"
         >
-          The relentless grind from a curious beginner to architecting complete
-          end-to-end solutions.
+          My learning progression as an IT student, moving from basic frontend
+          assignments to building complete, working web systems
         </motion.p>
       </div>
 
