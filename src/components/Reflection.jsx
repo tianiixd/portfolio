@@ -45,7 +45,7 @@ const Reflection = () => {
   return (
     <section
       id="reflection"
-      className="min-h-screen w-full max-w-7xl mx-auto px-6 md:px-12 py-20 flex flex-col justify-center"
+      className="min-h-screen w-full max-w-[1440px] mx-auto px-6 md:px-12 py-20 flex flex-col justify-center"
     >
       <div className="mb-16 text-center">
         <motion.p
@@ -60,7 +60,7 @@ const Reflection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
+          className="font-heading text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight transition-colors"
         >
           Reflection & Learnings
         </motion.h2>
@@ -69,38 +69,52 @@ const Reflection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto transition-colors"
         >
           My learning progression as an IT student, moving from basic frontend
-          assignments to building complete, working web systems
+          assignments to building complete, working web systems.
         </motion.p>
       </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-      >
-        {steps.map((step, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-brand/10 rounded-2xl">{step.icon}</div>
-              <h3 className="font-heading text-xl md:text-2xl font-bold text-gray-900">
-                {step.title}
-              </h3>
-            </div>
-            <p className="text-gray-500 text-lg leading-relaxed grow">
-              {step.description}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="relative max-w-5xl mx-auto w-full">
+        <div className="absolute left-[31px] md:left-[39px] top-8 bottom-0 w-[2px] bg-brand/20 dark:bg-brand/20 transition-colors"></div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="flex flex-col gap-8 relative z-10 w-full"
+        >
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="flex items-start gap-6 md:gap-10"
+            >
+              <div className="shrink-0 relative">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-gray-900 rounded-full border-[6px] border-white dark:border-gray-900 shadow-md flex items-center justify-center z-10 relative transition-transform duration-300 group-hover:-translate-y-1">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-brand/10 dark:bg-brand/20 rounded-full flex items-center justify-center text-brand transition-colors">
+                    {step.icon}
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white dark:bg-gray-800 p-8 md:p-10 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm transition-all duration-300 w-full group mt-0 md:mt-1 relative overflow-hidden">
+                <span className="font-mono text-sm font-bold text-brand mb-3 block uppercase tracking-widest">
+                  Phase 0{index + 1}
+                </span>
+                <h3 className="font-heading text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed transition-colors">
+                  {step.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 };

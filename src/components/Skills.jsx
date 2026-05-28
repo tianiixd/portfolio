@@ -18,6 +18,9 @@ import {
   SiMongodb,
   SiTypescript,
   SiMysql,
+  SiPrisma,
+  SiPostman,
+  SiKubernetes,
 } from "react-icons/si";
 import { skills } from "../data";
 
@@ -29,7 +32,7 @@ const getSkillIcon = (skillName) => {
     );
   if (lowerSkill === "express.js" || lowerSkill === "express")
     return (
-      <span className="w-5 h-5 flex items-center justify-center font-bold text-[10px] border-2 border-black rounded-full text-black">
+      <span className="w-5 h-5 flex items-center justify-center font-bold text-[10px] border-2 border-black dark:border-white rounded-full text-black dark:text-white transition-colors">
         ex
       </span>
     );
@@ -93,6 +96,18 @@ const getSkillIcon = (skillName) => {
     return (
       <FaDocker className="w-5 h-5 text-[#2496ED]" />
     );
+  if (lowerSkill.includes("kubernetes"))
+    return (
+      <SiKubernetes className="w-5 h-5 text-[#326CE5]" />
+    );
+  if (lowerSkill.includes("prisma"))
+    return (
+      <SiPrisma className="w-5 h-5 text-[#2D3748] dark:text-white" />
+    );
+  if (lowerSkill.includes("postman"))
+    return (
+      <SiPostman className="w-5 h-5 text-[#FF6C37]" />
+    );
 
   return <div className="w-1.5 h-1.5 rounded-full bg-brand/50"></div>;
 };
@@ -134,7 +149,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="min-h-screen w-full max-w-7xl mx-auto px-6 md:px-12 py-20 bg-gray-50 flex flex-col justify-center"
+      className="min-h-screen w-full max-w-[1440px] mx-auto px-6 md:px-12 py-20 bg-gray-50 dark:bg-gray-900 flex flex-col justify-center transition-colors"
     >
       <div className="mb-16 text-center">
         <motion.p
@@ -149,7 +164,7 @@ const Skills = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
+          className="font-heading text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight transition-colors"
         >
           Tech Stack & Expertise
         </motion.h2>
@@ -158,7 +173,7 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto transition-colors"
         >
           Technologies I work with daily to build fast, scalable, and
           maintainable applications.
@@ -176,13 +191,13 @@ const Skills = () => {
           <motion.div
             key={category}
             variants={itemVariants}
-            className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
+            className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all relative overflow-hidden group"
           >
             <div className="flex items-center gap-3 mb-8">
               <div className="p-2 bg-brand/10 rounded-lg">
                 {getIcon(category)}
               </div>
-              <h3 className="font-heading text-xl font-bold text-gray-900 capitalize">
+              <h3 className="font-heading text-xl font-bold text-gray-900 dark:text-white capitalize transition-colors">
                 {getCategoryName(category)}
               </h3>
             </div>
@@ -191,7 +206,7 @@ const Skills = () => {
               {items.map((skill, index) => (
                 <li key={index} className="flex items-center gap-3">
                   {getSkillIcon(skill)}
-                  <span className="text-gray-600 font-medium">{skill}</span>
+                  <span className="text-gray-600 dark:text-gray-300 font-medium transition-colors">{skill}</span>
                 </li>
               ))}
             </ul>

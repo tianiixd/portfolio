@@ -21,43 +21,43 @@ import {
 const getToolIcon = (toolName) => {
   const lowerTool = toolName.toLowerCase();
   if (lowerTool.includes("react"))
-    return <FaReact className="mr-1.5 text-sm text-[#61DAFB]" />;
+    return <FaReact className="mr-2 w-5 h-5 text-[#61DAFB]" />;
   if (lowerTool.includes("c#"))
-    return <TbBrandCSharp className="mr-1.5 text-sm text-[#512BD4]" />;
+    return <TbBrandCSharp className="mr-2 w-5 h-5 text-[#512BD4]" />;
   if (lowerTool === "express.js" || lowerTool === "express")
     return (
-      <span className="mr-1.5 flex items-center justify-center font-bold text-[9px] border border-black rounded-full w-[14px] h-[14px] leading-none text-black">
+      <span className="mr-2 flex shrink-0 items-center justify-center font-bold text-[10px] border border-black dark:border-white rounded-full w-5 h-5 leading-none text-black dark:text-white">
         ex
       </span>
     );
   if (lowerTool.includes("node"))
-    return <FaNodeJs className="mr-1.5 text-sm text-[#339933]" />;
+    return <FaNodeJs className="mr-2 w-5 h-5 text-[#339933]" />;
   if (lowerTool.includes("sql server express"))
-    return <FaDatabase className="mr-1.5 w-4 h-4 text-[#CC292B]" />;
+    return <FaDatabase className="mr-2 w-5 h-5 text-[#CC292B]" />;
   if (lowerTool.includes("postgres"))
-    return <SiPostgresql className="mr-1.5 text-sm text-[#336791]" />;
+    return <SiPostgresql className="mr-2 w-5 h-5 text-[#336791]" />;
   if (lowerTool.includes("tailwind"))
-    return <SiTailwindcss className="mr-1.5 text-sm text-[#06B6D4]" />;
+    return <SiTailwindcss className="mr-2 w-5 h-5 text-[#06B6D4]" />;
   if (lowerTool.includes("vite"))
-    return <SiVite className="mr-1.5 text-sm text-[#646CFF]" />;
+    return <SiVite className="mr-2 w-5 h-5 text-[#646CFF]" />;
   if (lowerTool.includes("mongo"))
-    return <SiMongodb className="mr-1.5 text-sm text-[#47A248]" />;
+    return <SiMongodb className="mr-2 w-5 h-5 text-[#47A248]" />;
   if (lowerTool.includes("typescript"))
-    return <SiTypescript className="mr-1.5 text-sm text-[#3178C6]" />;
+    return <SiTypescript className="mr-2 w-5 h-5 text-[#3178C6]" />;
   if (lowerTool.includes("javascript"))
-    return <FaJsSquare className="mr-1.5 text-sm text-[#F7DF1E]" />;
+    return <FaJsSquare className="mr-2 w-5 h-5 text-[#F7DF1E]" />;
   if (lowerTool.includes("ejs"))
-    return <FaCode className="mr-1.5 text-sm text-[#B4CA65]" />;
+    return <FaCode className="mr-2 w-5 h-5 text-[#B4CA65]" />;
   if (lowerTool.includes("html"))
-    return <FaHtml5 className="mr-1.5 text-sm text-[#E34F26]" />;
+    return <FaHtml5 className="mr-2 w-5 h-5 text-[#E34F26]" />;
   if (lowerTool.includes("css"))
-    return <FaCss3Alt className="mr-1.5 text-sm text-[#1572B6]" />;
+    return <FaCss3Alt className="mr-2 w-5 h-5 text-[#1572B6]" />;
   if (lowerTool.includes("sql"))
-    return <FaDatabase className="mr-1.5 text-sm text-[#CC292B]" />;
+    return <FaDatabase className="mr-2 w-5 h-5 text-[#CC292B]" />;
   if (lowerTool.includes("windows"))
-    return <AppWindow className="mr-1.5 w-[14px] h-[14px] text-[#0078D6]" />;
+    return <AppWindow className="mr-2 w-5 h-5 text-[#0078D6]" />;
   if (lowerTool.includes("api"))
-    return <Braces className="mr-1.5 w-[14px] h-[14px] text-gray-600" />;
+    return <Braces className="mr-2 w-5 h-5 text-gray-600 dark:text-gray-400" />;
   return null;
 };
 
@@ -66,9 +66,9 @@ const ProjectCard = ({ project }) => {
 
   return (
     <>
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
+      <div className="h-full bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-md dark:shadow-none transition-all duration-300 flex flex-col">
         <div
-          className="aspect-video w-full overflow-hidden bg-gray-50 border-b border-gray-200 cursor-pointer relative group"
+          className="aspect-video w-full overflow-hidden bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 cursor-pointer relative group transition-colors"
           onClick={() => setIsPreviewOpen(true)}
         >
           <img
@@ -83,18 +83,18 @@ const ProjectCard = ({ project }) => {
         </div>
 
         <div className="p-6 flex flex-col grow">
-          <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">
+          <h3 className="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 min-h-14 transition-colors">
             {project.title}
           </h3>
-          <p className="text-gray-500 mb-6 grow line-clamp-3">
+          <p className="text-gray-500 dark:text-gray-400 mb-6 line-clamp-3 transition-colors">
             {project.description}
           </p>
 
-          <div className="mb-6 flex flex-wrap gap-2">
+          <div className="mb-6 flex flex-wrap gap-3">
             {project.tools.map((tool, index) => (
               <span
                 key={index}
-                className="px-3 py-1.5 rounded-full text-xs font-semibold bg-brand/10 text-brand-hover flex items-center"
+                className="px-4 py-3 rounded-xl text-sm font-semibold bg-brand/10 dark:bg-brand/20 text-brand-hover dark:text-brand flex items-center transition-colors"
               >
                 {getToolIcon(tool)}
                 {tool}
@@ -116,35 +116,35 @@ const ProjectCard = ({ project }) => {
 
       {isPreviewOpen && (
         <div
-          className="fixed inset-0 z-100 flex items-center justify-center bg-black/60 p-4 sm:p-8 backdrop-blur-md"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/60 p-2 sm:p-4 md:p-8 backdrop-blur-md"
           onClick={() => setIsPreviewOpen(false)}
         >
           <div
-            className="relative max-w-6xl w-full max-h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-2xl transition-all"
+            className="relative max-w-6xl w-full max-h-full flex flex-col bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl transition-all"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-white/80 backdrop-blur-sm z-10">
-              <div>
-                <h3 className="font-heading text-2xl font-bold text-gray-900 flex items-center gap-2">
-                  <ZoomIn className="w-6 h-6 text-brand" />
-                  Preview:{" "}
-                  <span className="text-xl text-gray-600 font-medium font-sans">
+            <div className="px-4 sm:px-6 py-4 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm z-10 transition-colors">
+              <div className="flex-1 min-w-0 mr-4">
+                <h3 className="font-heading text-xl sm:text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2 truncate transition-colors">
+                  <ZoomIn className="w-5 h-5 sm:w-6 sm:h-6 text-brand shrink-0" />
+                  <span className="shrink-0">Preview:</span>
+                  <span className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 font-medium font-sans truncate transition-colors">
                     {project.title}
                   </span>
                 </h3>
               </div>
               <button
-                className="text-gray-400 hover:text-gray-700 bg-gray-50 hover:bg-gray-100 rounded-full p-2 cursor-pointer shadow-sm border border-gray-200 ease-out duration-200"
+                className="text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full p-2 cursor-pointer shadow-sm border border-gray-200 dark:border-gray-700 ease-out duration-200 shrink-0 transition-colors"
                 onClick={() => setIsPreviewOpen(false)}
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <div className="p-4 sm:p-6 bg-gray-50/50 flex-1 overflow-hidden flex items-center justify-center relative">
+            <div className="p-2 sm:p-4 md:p-6 bg-gray-50/50 dark:bg-gray-900/50 flex-1 overflow-hidden flex items-center justify-center relative transition-colors">
               <img
                 src={project.image}
                 alt={project.title}
-                className="max-w-full rounded-xl shadow-lg border border-gray-200/50 object-contain max-h-[75vh]"
+                className="max-w-full rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50 object-contain max-h-[60vh] sm:max-h-[75vh]"
               />
             </div>
           </div>

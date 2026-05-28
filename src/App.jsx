@@ -5,10 +5,12 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Reflection from "./components/Reflection";
+import Certificates from "./components/Certificates";
+import Contact from "./components/Contact";
 
 function App() {
   return (
-    <div className="w-full min-h-dvh bg-background flex flex-col">
+    <div className="w-full min-h-dvh bg-background dark:bg-gray-900 transition-colors flex flex-col">
       <NavBar />
       <main className="grow">
         <Hero />
@@ -16,6 +18,8 @@ function App() {
         <Skills />
         <Projects />
         <Reflection />
+        <Certificates />
+        <Contact />
       </main>
       <Footer />
     </div>
